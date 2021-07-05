@@ -1,0 +1,37 @@
+def twoNumberSum(array, targetSum):
+	for i in range(len(array)-1):
+		fN  = array[i]
+		for j in range(i+1,len(array)):
+			sN = array[j]
+			if fN+sN == targetSum:
+				return[fN,sN]
+    return[]
+
+def twoNumberSum(array, targetSum):
+	matchDict = {}
+	for i in array:
+		print(matchDict)
+		iMatching = targetSum - i
+		print (i)
+		print (matchDict)
+		if iMatching in matchDict:
+			return [iMatching, i]
+		else:
+			matchDict[i] = False
+			print('else')
+			print(matchDict)
+	return []
+  
+  def twoNumberSum(array, targetSum):
+	array.sort()
+	left = 0
+	right = len(array) - 1
+	while left < right:
+		Sum = array[left] + array[right]
+		if Sum == targetSum:
+			return [array[left],array[right]]
+		elif Sum < targetSum:
+			left += 1
+		elif Sum > targetSum:
+			right -= 1
+	return []
