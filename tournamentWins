@@ -1,0 +1,22 @@
+htW = 1
+
+def tournamentWinner(competitions, results):
+	cBestTeam = ""
+	scores = {cBestTeam : 0}
+	
+	for ix, competition in enumerate(competitions):
+		result = results[ix]
+		hTeam, aTeam = competition
+		
+		wonT = hTeam if result == htW else aTeam
+		
+		updateScores(wonT, 2, scores)
+		
+		if scores[wonT] > scores[cBestTeam]:
+			cBestTeam = wonT
+    return cBestTeam
+
+def updateScores(team, points, scores):
+	if team not in scores:
+		scores[team] =0
+	scores[team] += points
