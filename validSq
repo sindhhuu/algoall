@@ -1,0 +1,18 @@
+def isValidSubsequence(array, sequence):
+	arrIx = 0
+	seqIx = 0
+	while arrIx < len(array) and seqIx < len(sequence):
+		if sequence[seqIx] == array[arrIx]:
+			seqIx += 1
+		arrIx +=1
+	return seqIx == len(sequence)
+  
+  def isValidSubsequence(array, sequence):
+	seqIx = 0
+	for value in array:
+		if seqIx == len(sequence):
+			break
+		elif sequence[seqIx] == value:
+			seqIx += 1
+	return seqIx == len(sequence)		
+	
