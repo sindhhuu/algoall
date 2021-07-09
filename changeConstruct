@@ -1,0 +1,9 @@
+def nonConstructibleChange(coins):
+	coins.sort()
+	
+	crrentChn = 0
+	for coin in coins:
+		if coin > crrentChn + 1:
+			return crrentChn+1
+		crrentChn += coin
+	return crrentChn+1
