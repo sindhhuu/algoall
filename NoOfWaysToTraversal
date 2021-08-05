@@ -1,0 +1,33 @@
+def numberOfWaysToTraverseGraph(width, height):
+    #print(width,height)
+	if width == 1 or height == 1:
+		return 1
+	return numberOfWaysToTraverseGraph(width - 1, height) + numberOfWaysToTraverseGraph(width, height - 1)
+
+def numberOfWaysToTraverseGraph(width, height):
+    numberOfWays = [[0 for _ in range(width+1)] for _ in range(height+1)]
+	
+	for wIx in range(1, width+1):
+		for hIx in range(1, height+1):
+			if wIx == 1 or hIx == 1:
+				numberOfWays[hIx][wIx] = 1
+			else:
+				waysL = numberOfWays [hIx][ wIx - 1]
+				waysU = numberOfWays [hIx - 1][wIx]
+				numberOfWays[hIx][wIx] = waysL + waysU
+				
+	
+    return numberOfWays[height][width]
+
+def numberOfWaysToTraverseGraph(width, height):
+	xDist = width - 1
+	yDist = height - 1
+	numer = factorial(xDist + yDist)
+	denumer = factorial(xDist) * factorial(yDist)
+	
+    return numer // denumer
+def factorial(n):
+	result = 1
+	for i in range(2, n+1):
+		result *= i
+	return result
